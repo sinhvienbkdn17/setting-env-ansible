@@ -1,0 +1,19 @@
+---
+# tasks file for nginx
+- name: update cache
+  yum:
+    name: epel-release
+    state: present
+
+- name: install nginx
+  yum:
+    name: nginx
+    update_cache: yes
+    state: present
+  notify: restart service
+
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+

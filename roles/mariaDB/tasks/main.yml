@@ -1,0 +1,13 @@
+---
+# tasks file for mariaDB
+- name: install mariaDB
+  yum:
+    name: mariadb-server
+    update_cache: yes
+    state: latest
+  notify: restart mariaDB
+
+- name: start mariDB
+  service:
+    name: mariadb
+    state: started

@@ -1,0 +1,20 @@
+---
+# tasks file for dotnetCore
+- name: Update cache rpm
+  yum:
+    name: https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
+    state: present
+
+- name: Install lib
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libunwind
+    - libicu
+
+- name: Install dotnetcore
+  yum:
+    name: dotnet-sdk-2.1
+    update_cache: yes
+    state: present

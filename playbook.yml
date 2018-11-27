@@ -1,0 +1,20 @@
+- hosts: centos1
+  become: true
+  roles:
+    - haproxy
+
+- hosts: centos2
+  become: true
+  roles:
+    - nginx
+
+- hosts: centos3
+  become: true
+  roles:
+    - nginx
+    - dotnetCore
+
+- hosts: centos4
+  become: true
+  roles:
+    - mariaDB

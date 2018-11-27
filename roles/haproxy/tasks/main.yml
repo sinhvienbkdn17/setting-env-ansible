@@ -1,0 +1,12 @@
+---
+# tasks file for haproxy
+- name: install the lastest version of haproxy
+  yum:
+    name: haproxy
+    update_cache: yes
+    state: present
+
+- name: start haproxy
+  service:
+    name: haproxy
+    state: started
